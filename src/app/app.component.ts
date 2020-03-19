@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +10,29 @@ export class AppComponent {
   name:string = "no name yet";
   color:string = "black";
   isHidden:boolean = false;
+  yes:boolean = true;
+  inputValue:string;
+  heheheProp:string = "normal";
+
+  names:string[] = [
+    "Bob", "Larry", "Little Joe", "Junior", "Laura"
+  ]
+
+  check():void {
+    if (this.inputValue === "Yes") {
+      this.yes = false;
+    } 
+  }
+
+  hehehe():void {
+    this.heheheProp = (this.heheheProp == "normal") ? "italic" : "normal";
+  }
 
   setName():void {
-    this.name = "Parsley 冬";
+    if (this.name == "no name yet") this.name = "Parker";
+    this.name = (this.name == "Parker") ? "Parsley 冬" : "Parker";
   }
-  setColor():void {
+  toggleColor():void {
     this.color = (this.color == "black") ? "violet" : "black";
   }
   flipHidden():void {

@@ -1,6 +1,18 @@
 <div>
-  <button (click)="flipHidden()">Hide</button>
-  <h1 [hidden]="isHidden" [style.color]="color">{{title}} is my first Angular app. My name is {{name}}.</h1>
-  <button (click)="setName()">Change Name</button>
-  <button (click)="setColor()">Change Color</button>
+  <div *ngIf="yes">
+    <button (click)="flipHidden()">Hide</button>
+    <h1 [hidden]="isHidden" [style.color]="color">{{title}} is my first <span [style.font-style]="heheheProp">Angular</span> app. My name is {{name}}.</h1>
+    <input [(ngModel)]="inputValue" placeholder="hello">
+    <button (click)="check()">Maybe?</button>
+    <button (click)="setName()">Change Name</button>
+    <button (click)="toggleColor()">Change Color</button>
+  </div>
+  <div>
+    <ul *ngFor="let name of names">
+      <li>{{name}}</li>
+    </ul>
+  </div>
+  <div>
+    <p (click)="hehehe()">Click me?</p>
+  </div>
 </div>
