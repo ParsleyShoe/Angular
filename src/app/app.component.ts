@@ -1,4 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from './user.service';
+import { User } from './user.class';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,24 @@ import { Component, ViewChild } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  users:User[];
+  
+  ngOnInit() {
+    this.usersvc.list().subscribe(
+      res => {
+        this.users = res;
+        console.log("Users: ", res);
+      },
+      err => {
+        console.error("User service list() failed: ", err);
+      }
+    );
+  }
+
+  constructor(
+    private usersvc:UserService
+  ) {}
+  
   title = 'Angular 9';
   name:string = "no name yet";
   color:string = "black";

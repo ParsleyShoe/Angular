@@ -1,4 +1,16 @@
 <div>
+  <div>
+    <table class="table table-sm">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+      </tr>
+      <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.firstName}} {{user.lastName}}</td>
+      </tr>
+    </table>
+  </div>
   <div *ngIf="yes">
     <button (click)="flipHidden()">Hide</button>
     <h1 [hidden]="isHidden" [style.color]="color">{{title}} is my first <span [style.font-style]="heheheProp">Angular</span> app. My name is {{name}}.</h1>
